@@ -4,12 +4,20 @@ Configurations live in `environments/dev`, `environments/staging` and
 `environments/prod`. Edit the JSON declaration and expectations for that environment.
 `team.json` supplies the stable team ID. Each JSON explicitly names its environment.
 
-This project is checked against the platform repository
-(<https://github.com/bhavyakeniya/terraform-platform-abstraction>). Clone it as a
-sibling directory, or point `PLATFORM_DIR` at your checkout:
+This project is checked against the
+[platform repository](https://github.com/bhavyakeniya/terraform-platform-abstraction).
+Either point `PLATFORM_DIR` at your checkout:
 
 ```bash
 make check PLATFORM_DIR=/path/to/terraform-platform-abstraction
+```
+
+or clone the platform as a sibling using the directory name the default expects
+(`git clone` would otherwise produce the hyphenated repository name):
+
+```bash
+git clone https://github.com/bhavyakeniya/terraform-platform-abstraction.git terraform_platform_abstraction
+cd payments && make check
 ```
 
 `make check` checks every environment without AWS. `make localstack` exercises
