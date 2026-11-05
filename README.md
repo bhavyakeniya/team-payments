@@ -25,8 +25,8 @@ at the platform's registration guard until a real account is configured.
 
 Bumping to a newer platform release means changing the pinned SHA in that file;
 the team never copies pipeline logic. See the platform's
-`docs/environments-and-delivery.md` for registration, state migration, approval
-and retirement.
+[delivery guide](https://github.com/bhavyakeniya/terraform-platform-abstraction/blob/main/docs/environments-and-delivery.md)
+for registration, state migration, approval and retirement.
 
 Team configuration lives in environments/ exclusively; there are no duplicate
 root declarations to accidentally edit.
