@@ -29,10 +29,10 @@ permissions:
   id-token: write
 jobs:
   infrastructure:
-    uses: bhavyakeniya/terraform-platform-abstraction/.github/workflows/team-infrastructure.yml@50342cd5c45fec331297e82bd784a2a477b451e2
+    uses: bhavyakeniya/terraform-platform-abstraction/.github/workflows/team-infrastructure.yml@5f95d29f1465e61178ca74cc64b137faf449cf8c
     with:
       platform-repository: bhavyakeniya/terraform-platform-abstraction
-      platform-ref: 50342cd5c45fec331297e82bd784a2a477b451e2
+      platform-ref: 5f95d29f1465e61178ca74cc64b137faf449cf8c
       environment: ${{ inputs.environment || '' }}
       # Automatic runs (push, pull_request) stay credential-free: 'check'
       # validates every changed environment without AWS. Plan and apply are

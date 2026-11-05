@@ -16,12 +16,17 @@ make check PLATFORM_DIR=/path/to/terraform-platform-abstraction
 all three against the isolated free Hobby emulator, including S3 state/DynamoDB locks.
 The platform supplies every Terraform file and all pipeline implementation.
 
-The generated `infrastructure.yml.template` becomes the CI entry point once the
-platform has an actual published repository and reviewed commit SHA. Fill both
-placeholders with the same release, rename it to infrastructure.yml, and follow
-platform registration in `docs/environments-and-delivery.md`. It calls the shared
-checks/plan/apply workflow. Optional default-branch `mode=check, localstack=true`
-runs Hobby integration without AWS. No publication or AWS deployment is active.
+`.github/workflows/infrastructure.yml` is active and calls the platform's
+shared workflow at one pinned commit. Pushes and pull requests run `check`:
+every environment is validated against the real platform module without AWS
+credentials. `plan` and `apply` are deliberately manual — dispatch the workflow
+and choose the mode. AWS deployment is not enabled, so a dispatched plan stops
+at the platform's registration guard until a real account is configured.
+
+Bumping to a newer platform release means changing the pinned SHA in that file;
+the team never copies pipeline logic. See the platform's
+`docs/environments-and-delivery.md` for registration, state migration, approval
+and retirement.
 
 Team configuration lives in environments/ exclusively; there are no duplicate
 root declarations to accidentally edit.
