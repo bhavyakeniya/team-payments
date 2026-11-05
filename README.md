@@ -1,5 +1,7 @@
 # payments consumer
 
+[![CI](https://github.com/bhavyakeniya/team-payments/actions/workflows/infrastructure.yml/badge.svg?branch=main&event=push)](https://github.com/bhavyakeniya/team-payments/actions/workflows/infrastructure.yml)
+
 Configurations live in `environments/dev`, `environments/staging` and
 `environments/prod`. Edit the JSON declaration and expectations for that environment.
 `team.json` supplies the stable team ID. Each JSON explicitly names its environment.
